@@ -25,5 +25,8 @@ build/
 dist/
 *.egg-info/
 
-# Data folders (keep raw data local unless intentionally committed)
+# Data: keep local working files out, but commit the public Banxico source
+# so the repository is reproducible end to end.
 data/raw/*
+!data/raw/.gitkeep
+!data/raw/banxico_auction_rates_monthly.csv
