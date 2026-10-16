@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="100%" height="100%" fill="#ffffff" />
+  <rect x="40" y="40" width="1120" height="620" rx="12" fill="#f3f6f8" stroke="#d8e0e8" />
+  <text x="80" y="110" font-size="28" font-family="Arial" fill="#0e2942" font-weight="bold">Forecasting the Mexican Yield Curve</text>
+  <text x="80" y="150" font-size="14" fill="#607080">Oct 2006 — Sep 2026 · CETES &amp; MBONOs · Data science project</text>
+
+  <g transform="translate(80,190)">
+    <rect width="480" height="140" rx="8" fill="#ffffff" stroke="#e1e8f0" />
+    <text x="18" y="32" font-size="16" fill="#17202a" font-weight="bold">Key metrics</text>
+    <text x="18" y="62" font-size="14" fill="#17202a">PC1 explains ≈ 94.09%</text>
+    <text x="18" y="86" font-size="14" fill="#17202a">3 PCs explain ≈ 99.38% of variance</text>
+    <text x="18" y="110" font-size="14" fill="#17202a">Best model: VAR(1) @ 3m; PCA+VAR(1) @ 12m</text>
+  </g>
+
+  <g transform="translate(600,190)">
+    <rect width="480" height="140" rx="8" fill="#ffffff" stroke="#e1e8f0" />
+    <text x="18" y="32" font-size="16" fill="#17202a" font-weight="bold">Evaluation</text>
+    <text x="18" y="62" font-size="14" fill="#17202a">Expanding-window; origins start Oct 2022</text>
+    <text x="18" y="86" font-size="14" fill="#17202a">Horizons: 3 months and 12 months</text>
+    <text x="18" y="110" font-size="14" fill="#17202a">Metrics: average RMSE and MAE across maturities</text>
+  </g>
+
+  <g transform="translate(80,360)">
+    <rect width="1000" height="240" rx="8" fill="#ffffff" stroke="#e1e8f0" />
+    <text x="18" y="34" font-size="16" fill="#17202a" font-weight="bold">Model comparison (avg. metrics)</text>
+    <text x="18" y="66" font-size="14" fill="#17202a">Persistence (h=3): RMSE 0.5499 | MAE 0.4450</text>
+    <text x="18" y="90" font-size="14" fill="#17202a">VAR(1) direct (h=3): RMSE 0.5103 | MAE 0.3992</text>
+    <text x="18" y="114" font-size="14" fill="#17202a">PCA + VAR(1) (h=12): RMSE 1.1630 | MAE 0.9384</text>
+    <text x="18" y="150" font-size="12" fill="#607080">Notes: RMSE and MAE are reported in percentage points.</text>
+  </g>
+
+  <text x="80" y="640" font-size="12" fill="#17202a">Author: Max Santana · MIT License</text>
+</svg>

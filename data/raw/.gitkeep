@@ -1,0 +1,2 @@
+# This repository contains the project files for the data-science analysis of the Mexican yield curve.
+# Add the raw dataset under data/raw/banxico_auction_rates_monthly.csv before running the scripts.

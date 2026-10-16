@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Forecasting the Mexican Yield Curve</title>
+    <style>
+      :root {
+        --navy: #0e2942;
+        --orange: #c26a23;
+        --ink: #17202a;
+        --muted: #607080;
+        --rule: #d8e0e8;
+        --cloud: #f3f6f8;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #ffffff;
+        color: var(--ink);
+      }
+      .wrap {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 0 20px 40px;
+      }
+      .hero {
+        background: var(--cloud);
+        border: 1px solid var(--rule);
+        border-radius: 12px;
+        padding: 28px;
+      }
+      h1 {
+        margin: 0 0 10px;
+        color: var(--navy);
+        font-size: 2.2rem;
+      }
+      .lede {
+        font-size: 1.1rem;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .card {
+        background: white;
+        border: 1px solid var(--rule);
+        border-radius: 12px;
+        padding: 22px 20px;
+        margin-top: 24px;
+      }
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        border: 1px solid var(--rule);
+        background: white;
+      }
+      .button {
+        display: inline-block;
+        margin-top: 12px;
+        text-decoration: none;
+        background: var(--navy);
+        color: white;
+        padding: 10px 18px;
+        border-radius: 8px;
+        font-weight: 600;
+      }
+      ul {
+        line-height: 1.8;
+      }
+      .meta {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="hero">
+        <h1>Forecasting the Mexican Yield Curve</h1>
+        <div class="lede">
+          A data-science project studying the structure and forecasting performance of Mexico’s nominal yield curve using monthly auction data from October 2006 to September 2026.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Project infographic</h2>
+        <img src="infographic.svg" alt="Infographic for the Mexican Yield Curve project" />
+        <a class="button" href="https://github.com/maxsantana-data2strategy/forecasting-mexican-yield-curve" target="_blank" rel="noreferrer">
+          Open GitHub repository
+        </a>
+      </div>
+
+      <div class="card">
+        <h2>Highlights</h2>
+        <ul>
+          <li>Three principal components explain about 99.38% of the curve’s variation.</li>
+          <li>PC1 explains about 94.09% of the variance, consistent with a dominant level factor.</li>
+          <li>At 3 months, direct VAR(1) shows the strongest performance in the chosen evaluation design.</li>
+          <li>At 12 months, PCA + VAR(1) is the top-performing strategy among those evaluated.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Artifact links</h2>
+        <ul>
+          <li><a href="https://github.com/maxsantana-data2strategy/forecasting-mexican-yield-curve/blob/main/README.md">README</a></li>
+          <li><a href="https://github.com/maxsantana-data2strategy/forecasting-mexican-yield-curve/blob/main/_run_ffill_comparison.py">Forecast comparison script</a></li>
+          <li><a href="https://github.com/maxsantana-data2strategy/forecasting-mexican-yield-curve/blob/main/_generate_brief_pdf.py">Executive brief script</a></li>
+        </ul>
+        <div class="meta">Project type: Data science • Time series • Forecasting • PCA</div>
+      </div>
+    </div>
+  </body>
+</html>
