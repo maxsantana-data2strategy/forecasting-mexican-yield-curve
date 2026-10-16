@@ -11,6 +11,7 @@ Nine nominal maturities of the Mexican yield curve — CETES at 28, 91, 182 and 
 The missing-data treatment is reported as part of the result rather than as a preprocessing footnote: only 40 of 240 months observe all nine maturities, so the forward-fill decision shapes what the error metrics mean. The conclusions are labelled **exploratory** for that reason, and the tests that would settle the question are listed in [Next Steps](#-next-steps) rather than implied anywhere in the findings.
 
 [![Download Infographic](https://img.shields.io/badge/📥_Download_Infographic-2EA44F?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](https://raw.githubusercontent.com/maxsantana-data2strategy/forecasting-mexican-yield-curve/main/assets/Infographic_YieldCurve_EN.jpg)
+[![Read the Notebook](https://img.shields.io/badge/📓_Read_the_Notebook-0366D6?style=for-the-badge&logo=jupyter&logoColor=white)](https://maxsantana-data2strategy.github.io/forecasting-mexican-yield-curve/analisis_curva_banxico_notebook.html)
 
 ---
 
@@ -107,17 +108,27 @@ Average across the nine maturities, in percentage points. Bold marks the lowest 
 
 ### The curve in three factors
 
-![Variance explained by principal component](assets/figure_pca_variance.png)
+![PCA results: explained and cumulative variance, PC1-PC3 loadings, reconstruction error](outputs/figures/pca_results.png)
 
-PC1 alone carries 94.09% of the variation; the third component brings the cumulative share to 99.38%.
+Variance per component and cumulative share, the PC1–PC3 loadings that give the factors their level / slope / curvature reading, and reconstruction error by number of components.
+
+### Train/test separation
+
+![Temporal separation of training and test sets](outputs/figures/separacion_temporal_pronosticos.png)
+
+The evaluation respects time order: nothing after an origin enters the model that forecasts from it.
+
+### Observed vs forecast curves
+
+![Observed and forecast curves, direct VAR(1) against persistence](outputs/figures/curvas_var_vs_persistencia.png)
+
+Representative dates at both horizons, direct VAR(1) against persistence.
 
 ### Where each model wins
 
 ![Average RMSE by model and horizon](assets/figure_model_rmse.png)
 
 Average RMSE across the nine maturities. Direct VAR(1) is lowest at 3 months, PCA + VAR(1) at 12 — and direct VAR(1) falls behind the benchmark at the longer horizon.
-
-Full-resolution versions of the brief's figures — PC1–PC3 loadings, the train/test separation and observed-vs-forecast curves — are in `outputs/figures/` and reproduced in `docs/brief_curva_banxico.pdf`.
 
 ### Context → Findings → Implications (C→F→I)
 
@@ -150,24 +161,25 @@ forecasting-mexican-yield-curve/
 ├── notebooks/
 │   └── analisis_curva_banxico.ipynb      # main analysis
 ├── data/
-│   └── raw/
-│       └── banxico_auction_rates_monthly.csv
+│   ├── raw/
+│   │   ├── banxico_auction_rates_monthly.csv   # not yet committed
+│   │   └── tasa_banxico.xlsx                   # policy rate, validation only
+│   └── processed/
+│       └── tasas_mensuales_forward_fill.csv    # not yet committed
 ├── scripts/
-│   ├── run_ffill_comparison.py           # fill-order comparison
-│   └── generate_brief_pdf.py             # builds the executive brief
+│   └── run_ffill_comparison.py           # fill-order comparison
 ├── outputs/
 │   └── figures/                          # charts used by the brief and README
 ├── docs/
-│   ├── brief_curva_banxico.pdf           # 5-page executive brief (Spanish)
-│   └── bitacora.csv                      # decision log kept during the analysis
+│   └── analisis_curva_banxico_notebook.html  # rendered notebook (GitHub Pages)
 ├── assets/
 │   └── Infographic_YieldCurve_EN.jpg
 ├── LICENSE
 └── README.md
 ```
 
-1. **Read without running** — the notebook retains its executed output, so the analysis is readable as-is on GitHub, and `docs/brief_curva_banxico.pdf` is the five-page executive version
-2. **Run it yourself:**
+1. **Read without running** — the notebook retains its executed output, so the analysis is readable as-is on GitHub, and the rendered HTML export is linked at the top of this README
+2. **Run it yourself** — the notebook resolves its paths relative to the repository root, so no configuration is needed once the three input files below are in place:
 
 ```bash
 git clone https://github.com/maxsantana-data2strategy/forecasting-mexican-yield-curve.git
@@ -178,7 +190,8 @@ jupyter notebook notebooks/analisis_curva_banxico.ipynb
 ```
 
 3. **Reproduce the fill-order check** — `python scripts/run_ffill_comparison.py` prints both treatments side by side
-4. **Rebuild the brief** — `python scripts/generate_brief_pdf.py` regenerates `docs/brief_curva_banxico.pdf` from the figures in `outputs/figures/`
+
+> **Input data not yet committed.** `data/raw/banxico_auction_rates_monthly.csv`, `data/raw/tasa_banxico.xlsx` and `data/processed/tasas_mensuales_forward_fill.csv` are required to execute the notebook. Until they are added, the repository is readable end to end but not runnable.
 
 ### Dataset schema
 
