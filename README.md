@@ -107,21 +107,17 @@ Average across the nine maturities, in percentage points. Bold marks the lowest 
 
 ### The curve in three factors
 
-![PCA results](outputs/figures/pca_results.png)
+![Variance explained by principal component](assets/figure_pca_variance.png)
 
-Explained and cumulative variance, PC1–PC3 loadings, and reconstruction error by number of components.
+PC1 alone carries 94.09% of the variation; the third component brings the cumulative share to 99.38%.
 
-### Train/test separation
+### Where each model wins
 
-![Temporal separation](outputs/figures/separacion_temporal_pronosticos.png)
+![Average RMSE by model and horizon](assets/figure_model_rmse.png)
 
-The evaluation respects time order: nothing after an origin enters the model that forecasts from it.
+Average RMSE across the nine maturities. Direct VAR(1) is lowest at 3 months, PCA + VAR(1) at 12 — and direct VAR(1) falls behind the benchmark at the longer horizon.
 
-### Observed vs forecast curves
-
-![Observed vs forecast curves](outputs/figures/curvas_var_vs_persistencia.png)
-
-Representative dates at both horizons, direct VAR(1) against persistence.
+Full-resolution versions of the brief's figures — PC1–PC3 loadings, the train/test separation and observed-vs-forecast curves — are in `outputs/figures/` and reproduced in `docs/brief_curva_banxico.pdf`.
 
 ### Context → Findings → Implications (C→F→I)
 
